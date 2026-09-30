@@ -1,5 +1,12 @@
 queue_rules:
   - name: default
-    merge_method: fast-forward
     merge_conditions:
       - check-success=proof
+
+pull_request_rules:
+  - name: auto queue
+    conditions:
+      - base=main
+    actions:
+      queue:
+        name: default
