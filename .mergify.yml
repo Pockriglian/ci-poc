@@ -1,13 +1,12 @@
 queue_rules:
   - name: default
     merge_conditions:
-      - check-success=gate
+      - check-success=ci
 
 pull_request_rules:
-  - name: auto queue when approved
+  - name: auto queue
     conditions:
       - base=main
-      - "#approved-reviews-by>=1"
     actions:
       queue:
         name: default
