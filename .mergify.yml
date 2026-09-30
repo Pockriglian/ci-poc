@@ -3,4 +3,11 @@ queue_rules:
     merge_conditions:
       - check-success=this-check-never-exists
 
-pull_request_rules: []
+pull_request_rules:
+  - name: auto queue on green CI
+    conditions:
+      - base=main
+      - check-success=proof
+    actions:
+      queue:
+        name: default
