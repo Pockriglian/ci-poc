@@ -1,0 +1,9 @@
+name: real-ci
+on: [pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "real CI running the project's actual tests"
+          exit 1
