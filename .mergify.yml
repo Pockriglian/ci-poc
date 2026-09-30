@@ -1,7 +1,7 @@
 queue_rules:
   - name: default
     merge_conditions:
-      - check-success=ci
+      - check-success=@github-actions/ci
 
 pull_request_rules:
   - name: auto queue
