@@ -1,14 +1,16 @@
-name: poc-secret-access
+name: queue-branch-proof
 on:
   push:
-    branches: [main]
+    branches: ['mergify/**', 'main']
+  pull_request:
 jobs:
   proof:
     runs-on: ubuntu-latest
     steps:
-      - name: show that merged code holds the repository secret
-        env:
-          S: ${{ secrets.CI_CANARY }}
+      - run: |
+          echo "event=${{ github.event_name }} ref=${{ github.ref }}"
+      - env:
+          S: ${{ secrets.QUEUE_CANARY }}
         run: |
           echo "secret readable: ${S:+yes}"
           echo "secret length: ${#S}"
