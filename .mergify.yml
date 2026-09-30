@@ -1,13 +1,5 @@
 queue_rules:
   - name: default
-    merge_conditions:
-      - check-success=this-check-never-exists
+    merge_conditions: []
 
-pull_request_rules:
-  - name: auto queue on green CI
-    conditions:
-      - base=main
-      - check-success=proof
-    actions:
-      queue:
-        name: default
+pull_request_rules: []
